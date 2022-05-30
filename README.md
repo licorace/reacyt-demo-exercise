@@ -1,3 +1,9 @@
+## 1.Ant Design Carousel 改造
+
+- 走马灯面板指示点改造成圆点
+- 模仿 Ant Design Carousel 的面板指示点
+- 增加了切换到下一面板和上一面板的两个图标
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
