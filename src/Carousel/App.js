@@ -1,4 +1,4 @@
-import React, { memo, useRef, useState } from "react"
+import React, { memo, useRef, useState, useCallback } from "react"
 
 import { Carousel } from "antd"
 
@@ -16,7 +16,7 @@ const contentStyle = {
 
 const App = memo(() => {
   const onChange = (currentSlide) => {
-    console.log(currentSlide)
+    // console.log(currentSlide)
   }
 
   const [currentIndex, setcurrentIndex] = useState(0)
@@ -28,12 +28,25 @@ const App = memo(() => {
 
   const bannerRef = useRef()
 
+  const bannerChange = useCallback((from, to) => {
+    console.log(from, to)
+    setTimeout(() => {
+      setcurrentIndex(to)
+    }, 0)
+  }, [])
+
   const titles = [1, 2, 3, 4]
 
   return (
     <BannerWrapper>
       <div className="banner">
-        <Carousel dots={false} afterChange={onChange} ref={bannerRef}>
+        <Carousel
+          autoplay
+          dots={false}
+          afterChange={onChange}
+          ref={bannerRef}
+          beforeChange={bannerChange}
+        >
           <div>
             <h3 style={contentStyle}>1</h3>
           </div>
